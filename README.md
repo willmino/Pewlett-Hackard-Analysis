@@ -145,7 +145,7 @@ Provide a bulleted list with four major points from the two analysis deliverable
 
 4. When viewing the additional `mentors_by_title` table, only 1.19% of Senior Engineers would be retained if all of them entered into the mentorship program. This is the lowest retention figure for any of the groups.
 
-![mentors_by_title](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/Data/mentors_by_title.csv)
+![mentors_by_title](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/mentors_bytitle.png)
 
 ## Summary
 
