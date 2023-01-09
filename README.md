@@ -9,7 +9,7 @@ We constructed a database from six .csv files and ran SQL queries in pgAdmin (wi
 
 ## Analysis
 
-To construct the database we first created tables using SQL statments such as below:
+To construct the database we first created tables using SQL queries such as below:
 
 `CREATE TABLE dept_emp (`
 
@@ -26,14 +26,32 @@ To construct the database we first created tables using SQL statments such as be
 &nbsp;&nbsp;&nbsp;&nbsp;`FOREIGN KEY (dept_no) REFERENCES departments (dept_no),`
 
 &nbsp;&nbsp;&nbsp;&nbsp;`PRIMARY KEY (emp_no, dept_no)`
+
 `);`
 
-This table housed the primary key `emp_no` and `dept_no` which were critical for performing most of the joins in our SQL queries. Foreign keys were established in the table schema. For example, `emp_no` is a primary key in the `employees` table, but it functions as a foreign key in the `dept_emp` table. In this way, the `employees' table can reference the `dept_emp` table by using the 
+This table housed the primary key `emp_no` and `dept_no` which were critical for performing most of the joins in our SQL queries. Foreign keys were established in the table schema as well. For example, `emp_no` is a primary key in the `employees` table, but it functions as a foreign key in the `dept_emp` table. In this way, the `employees' table can reference the `dept_emp` table by using the 
 foreign key `emp_no`. This serves as the basis for database construction and allows for the execution of many SQL queries.
 
 After we created all the tables, primary, and foreign keys, our schema was completed. Below was the final visualization for the database schema:
 
 ![Database Design](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/ERDiagram.png)
+
+In order to determine what employees were eligible for the mentorship program, we first selected all of the employees who were born between 1952 and 1955. We also selected for each employees title. We then ordered the `emp_no` (employee number) in ascending order. This table construction required a `JOIN` between the `employees` and `titles` tables. The SQL query allowing for this table is listed below:
+
+`SELECT e.emp_no, e.first_name, e.last_name, t.title, t.from_date, t.to_date`
+
+`INTO retirement_titles`
+
+`FROM employees as e`
+
+`JOIN titles as t ON e.emp_no = t.emp_no`
+
+`WHERE birth_date BETWEEN '1952-01-01' AND '1955-12-31'`
+
+`ORDER BY emp_no ASC;`
+
+
+
 
 ## Results
 
