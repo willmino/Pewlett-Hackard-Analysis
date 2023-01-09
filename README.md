@@ -95,6 +95,7 @@ A very important deliverable in our task was to communicate human resources the 
 
 This SQL query produced the following table result:
 
+### Retiring Titles
 ![retiring_titles](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/retiring_titles.png)
 
 ### Deliverable 2
@@ -125,6 +126,8 @@ We ultimately wanted to generate a table that would communicate to upper managem
 
 The SQL query produced the following table preview.
 
+
+### Mentorship Eligibility
 ![mentorship_eligibility](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/mentorship_eligibility.png)
 
 
