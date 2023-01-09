@@ -33,7 +33,7 @@ foreign key `emp_no`. This serves as the basis for database construction and all
 
 After we created all the tables, primary, and foreign keys, our schema was completed. Below was the final visualization for the database schema:
 
-![]()
+![Database Design](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/ERDiagram.png)
 
 ## Results
 
