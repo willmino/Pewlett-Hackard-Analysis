@@ -77,7 +77,11 @@ This query yielded the following `unique_titles` table. Now the table only inclu
 
 ![unique_titles](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/unique_titles.png)
 
+### Deliverable 1
+
 A very important deliverable in our task was to communicate human resources the total number of employees near retirement listed by their most recent title. This was achieved with a simple SQL query. We selected for the count of the unique titles, and the name of each unique title from the retiring_titles table we previously created. Then, the table was grouped by each unique title and each row was listed in descending order by the count of each title. The SQL query summary was listed below.
+
+
 
 `SELECT COUNT(ut.title), ut.title`
 
@@ -92,6 +96,36 @@ A very important deliverable in our task was to communicate human resources the 
 This SQL query produced the following table result:
 
 ![retiring_titles](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/retiring_titles.png)
+
+### Deliverable 2
+
+We ultimately wanted to generate a table that would communicate to upper management a list of employees who were eligible to participate in the proposed mentorship program. To deliver this table, we performed a SQL query that selected the employee number, first name, last name, and birth date from the `employees` table. We selected the `to_date` and `from_date` from the `dept_emp` table. Finally, we selected each employee's title from the `titles` table. The `SELECT DISTINCT ON` clause was executed on `emp_no` from the `employees` table in order to select the unique and most recent title of each employee. The `INTO` clause allowed the SQL query to store the selected information into a table. The `FROM` employees statment and the `JOIN` dept_emp, coupled with the `Join` titles, statement allowed us to perform a join to produce an aggregated display of necessary information. The `WHERE` clause selected for currently employed workers and the non-enclosed `AND` with `BETWEEN` clause allowed for more extensive filtering to incorporate employees who starter working in the year 1965. Each row was listed by the acending order of the employee number. The SQL query was summarized below:
+
+`SELECT DISTINCT ON (e.emp_no) e.emp_no, e.first_name, e.last_name, e.birth_date,`
+
+&nbsp;&nbsp;&nbsp;&nbsp;`de.from_date, de.to_date,`
+
+&nbsp;&nbsp;&nbsp;&nbsp;`t.title`
+
+`INTO mentorship_eligibility`
+
+`FROM employees as e`
+
+`JOIN dept_emp as de`
+
+`ON e.emp_no = de.emp_no`
+
+`JOIN titles as t`
+
+`ON e.emp_no = t.emp_no`
+
+`WHERE (de.to_date = '9999-01-01') AND (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')`
+
+`ORDER BY emp_no ASC;`
+
+The SQL query produced the following table preview.
+
+![mentorship_eligibility](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/mentorship_eligibility.png)
 
 
 ## Results
