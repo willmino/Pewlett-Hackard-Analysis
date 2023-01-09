@@ -73,9 +73,25 @@ To execute this, we performed another SQL query that delivered a `unique_titles`
 
 `ORDER BY rt.emp_no ASC, rt.to_date DESC;`
 
-This query yielded the following `unique_titles` table.
+This query yielded the following `unique_titles` table. Now the table only include a single row for each employee with their most recent title.
 
 ![unique_titles](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/unique_titles.png)
+
+A very important deliverable in our task was to communicate human resources the total number of employees near retirement listed by their most recent title. This was achieved with a simple SQL query. We selected for the count of the unique titles, and the name of each unique title from the retiring_titles table we previously created. Then, the table was grouped by each unique title and each row was listed in descending order by the count of each title. The SQL query summary was listed below.
+
+`SELECT COUNT(ut.title), ut.title`
+
+`INTO retiring_titles`
+
+`FROM unique_titles as ut`
+
+`GROUP BY ut.title`
+
+`ORDER BY COUNT DESC;`
+
+This SQL query produced the following table result:
+
+![retiring_titles](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/retiring_titles.png)
 
 
 ## Results
