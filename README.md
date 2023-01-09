@@ -50,7 +50,26 @@ In order to determine what employees were eligible for the mentorship program, w
 
 `ORDER BY emp_no ASC;`
 
-This query produce the following table result.
+This query produce the following table result. We can see multiple employees as evidence by duplicate employee numbers but with different titles. This indicates that the employee was at one point promoted. In order to have the most accurate information for our tables, we needed to select the most recent title for each employee.
+
+To execute this, we performed another SQL query that delivered a `unique_titles` table. 
+
+`SELECT DISTINCT ON (rt.emp_no) rt.emp_no,`
+
+&nbsp;&nbsp;&nbsp;&nbsp;`rt.first_name,`
+
+&nbsp;&nbsp;&nbsp;&nbsp;`rt.last_name, `
+
+&nbsp;&nbsp;&nbsp;&nbsp;`rt.title`
+
+`INTO unique_titles`
+
+`FROM retirement_titles as rt`
+
+`WHERE to_date = '9999-01-01'`
+
+`ORDER BY rt.emp_no ASC, rt.to_date DESC;`
+
 
 ![retirement_titles](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/retirement_titles.png)
 
