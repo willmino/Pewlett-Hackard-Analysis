@@ -50,6 +50,10 @@ In order to determine what employees were eligible for the mentorship program, w
 
 `ORDER BY emp_no ASC;`
 
+This query produce the following table result.
+
+![retirement_titles](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/retirement_titles.png)
+
 
 
 
