@@ -160,7 +160,7 @@ Assume a 1:1 ratio of retirees to incoming employees. We can observe that at min
 
 The corresponding query is listed below:
 
-![mentees_per_mentor_query]()
+![mentees_per_mentor_query](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/mentees_per_mentor_query.png)
 
 ### Adjusted Mentees per Mentor
 The second additional SQL query was performed to show how changing the age parameters for mentorship program eligibility allows for far more eligible employees. We adjusted the `WHERE` clause and set it equal to  There are now over 93,000 eligible employees. Most groups are completely covered by the new amount of eligible mentors. Senior Staff and Senior Engineers still do not have a 1:1 ratio of mentors to incoming employees, but that is a dramatic improvement. At best, some mentors may need to take on two mentees in these groups. The eligibility for mentors could be even further expand by changing the SQL query requirement `WHERE` clause to include birth dates before 1960 and after 1965.
