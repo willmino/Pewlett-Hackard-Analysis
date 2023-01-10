@@ -34,7 +34,7 @@ foreign key `emp_no`. This serves as the basis for database construction and all
 
 After we created all the tables, primary, and foreign keys, our schema was completed. Below was the final visualization for the database schema:
 
-![Database Design](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/ERDiagram.png)
+![Database Design](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/ER_Diagram.png)
 
 In order to determine what employees were eligible for the mentorship program, we first selected all of the employees who were born between 1952 and 1955. We also selected for each employees title. We then ordered the `emp_no` (employee number) in ascending order. This table construction required a `JOIN` between the `employees` and `titles` tables. The SQL query allowing for this table is listed below:
 
