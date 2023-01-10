@@ -72,13 +72,13 @@ In order to have the most accurate information for our tables, we limited our ta
 
 `ORDER BY rt.emp_no ASC, rt.to_date DESC;`
 
-This query yielded the following `unique_titles` table. Now the table only included a single row for each employee with their most recent title. This figure clearly depicts the magnitude of the impending retirement wave at Pewlett-Hackard. We can see over 70,000 employees are nearing retirement.
+This query yielded the following `unique_titles` table. Now the table only included a single row for each employee with their most recent title. This figure clearly depicts the magnitude of the retirement wave coming soon to Pewlett-Hackard. At the bottom of the table, we can see the total rows indicate over 70,000 unique employees are nearing retirement.
 
 ![unique_titles](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/unique_titles_.png)
 
 ### Deliverable 1
 
-A very important deliverable in our task was to communicate human resources the total number of employees near retirement listed by their most recent title. This was achieved with a simple SQL query. We selected for the count of the unique titles, and the name of each unique title from the retiring_titles table we previously created. Then, the table was grouped by each unique title and each row was listed in descending order by the count of each title. The SQL query summary was listed below.
+A very important deliverable in our task was to also communicate to human resources the total number of employees near retirement listed by groups of each title. We could inform them which groups might need more help than others if one title group had significantly more or less available mentors than the other. This was achieved with a simple SQL query. We selected for the count of the unique titles, and the name of each unique title from the retiring_titles table we previously created. Then, this table was grouped by each unique title and each row was listed in descending order by the count of each title. The SQL query summary was listed below.
 
 
 
@@ -97,9 +97,11 @@ This SQL query produced the following table result:
 ### Retiring Titles
 ![retiring_titles](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/retiring_titles.png)
 
+Now we can see that some groups are certainly more impacted than others. For example, Senior Engineers and Senior Staff titles may potentially see over 20,000 layoff each in the near future.
+
 ### Deliverable 2
 
-We ultimately wanted to generate a table that would communicate to upper management a list of employees who were eligible to participate in the proposed mentorship program. To deliver this table, we performed a SQL query that selected the employee number, first name, last name, and birth date from the `employees` table. We selected the `to_date` and `from_date` from the `dept_emp` table. Finally, we selected each employee's title from the `titles` table. The `SELECT DISTINCT ON` clause was executed on `emp_no` from the `employees` table in order to select the unique and most recent title of each employee. The `INTO` clause allowed the SQL query to store the selected information into a table. The `FROM` employees statment and the `JOIN` dept_emp, coupled with the `Join` titles, statement allowed us to perform a join to produce an aggregated display of necessary information. The `WHERE` clause selected for currently employed workers and the non-enclosed `AND` with `BETWEEN` clause allowed for more extensive filtering to incorporate employees who starter working in the year 1965. Each row was listed by the acending order of the employee number. The SQL query was summarized below:
+After determining the severity of the incoming retirement wave, it was necessary to determine how many mentorship eligible employees were available to help prepare the company for its transition to newer employees. It was necessary to see if there were going to be either too many or too few eligible mentors before implementing the program. We ultimately wanted to generate a table that would communicate to upper management a list of employees who were eligible to participate in the proposed mentorship program. To deliver this table, we performed a SQL query that selected the employee number, first name, last name, and birth date from the `employees` table. We selected the `to_date` and `from_date` from the `dept_emp` table. Finally, we selected each employee's title from the `titles` table. The `SELECT DISTINCT ON` clause was executed on `emp_no` from the `employees` table in order to select the unique and most recent title of each employee. The `INTO` clause allowed the SQL query to store the selected information into a table. The `FROM` employees statment and the `JOIN` dept_emp, coupled with the `Join` titles, statement allowed us to perform a join to produce an aggregated display of necessary information. The `WHERE` clause selected for currently employed workers and the non-enclosed `AND` with `BETWEEN` clauses allowed for more extensive filtering to incorporate employees who started working in the year 1965. We specifically selected this year for the filtering criteria to include only experienced senior employees who are not likely to retire any time soon. Each row was listed by the acending order of the employee number. The corresponding SQL query was summarized below:
 
 `SELECT DISTINCT ON (e.emp_no) e.emp_no, e.first_name, e.last_name, e.birth_date,`
 
@@ -143,7 +145,7 @@ The SQL query produced the following table preview.
 
 4. When viewing the additional `mentors_by_title` table, only 1.19% of Senior Engineers would be retained if all of them entered into the mentorship program. This is the lowest retention figure for any of the groups.
 
-![mentors_by_title](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/mentors_bytitle.png)
+![mentors_by_title](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/mentors_by_title.png)
 
 ## Summary
 
