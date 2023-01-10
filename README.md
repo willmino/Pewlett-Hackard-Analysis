@@ -134,27 +134,27 @@ The SQL query produced the following table preview.
 ### Results
 
 
-1. From the deliverable table `retiring_titles`, 72,458 total employees are nearing retirement. This is a large number of employees and the company should be prepared for the incoming turnover.
+1. From the deliverable table `retiring_titles`, a total of 72,458 total employees are nearing retirement. This is a large number of employees and the company should be prepared for the incoming turnover.
 
-2. From the deliverable table `mentorship_eligibility` 1,549 employees are eligible for the mentorship program. If we assume that every position of the near-retiring employees will be filled, we would expect 72,458 incoming employees. We can create a ratio of mentees_per_mentor by dividing the `count` column, as 72,458 retiring employees (as total rows from the `retiring_titles` deliverable) by 1,549 available mentors (from the `mentorship_eligibility` table). Without grouping by title, this calculation suggests that each mentor will have to work with about 47 incoming employees. Currently, these conditions are not favorable for the mentorship program.
+2. From the deliverable table `mentorship_eligibility` 1,549 employees are eligible for the mentorship program. If we assume that every position of the near-retiring employees will eventually be filled, we would expect 72,458 incoming employees. We can create a ratio of mentees_per_mentor by dividing the total of the retiring employees `count` column (from the `retiring_titles` deliverable) by 1,549 available mentors (from the `mentorship_eligibility` table). Without grouping by title, this calculation suggests that each mentor will have to work with about 47 incoming employees. Currently, these conditions are not favorable for the mentorship program.
 
 3. Senior Engineers and Senior Staff comprise 70.1% of the soon-departing workforce. The company's largest resource for the highest quality training and technical body of knowledge is the 50000+ senior employees containing this knowledge. The company could experience a decrease in techinical productivity if over 50,000 new employees enter without a high quality mentorship experience to enrich their techinical expertise.
 
-4. The current filtering parameters are generating too few eligibile mentors. Only selecting mentors from the year 1965, as outlined in the deliverable 2 analysis, greatly limits the number of available mentors. Since there are 72,458 retirement eligible employees, it is strongly suggested that we change the parameters for the mentorship eligibility by including some employees who were born before and after 1965.
+4. The current filtering parameters are generating too few eligibile mentors. Only selecting mentors from the year 1965, as outlined in the deliverable 2 `mentorship eligibility` table analysis, greatly limits the number of available mentors. Since there are 72,458 retirement eligible employees born just between 1952 and 1955, there is truly a far larger pool of mentorship eligibile employes near retirement who we can select. It is strongly suggested that we change the parameters for the mentorship eligibility by including some employees who were born before 1965.
 
-![mentors_by_title](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/mentors_by_title.png)
 
 ## Summary
 
-- According to the `unique_titles` and `retiring_titles` tables, 72,458 employees will need to be hired ahead of the upcoming wave of retiring employees. Again, over two thirds of these roles are Senior Engineers and Senior Staff which comprise the bulk of the technical expertise for Pewlett-Hackard. The future success of the company depends on maintaining this technical excellence and it is strongly suggested to ensure incoming Senior Engineers and Senior Staff have as little of a ratio of mentors to mentees as possible. These conditions will contribute to a higher quality of mentorship for Pewlett-Hackard's most essential personnel. 
+- According to the `unique_titles` and `retiring_titles` tables, 72,458 employees will need to be hired ahead of the upcoming wave of retiring employees. Again, over two thirds of these roles are Senior Engineers and Senior Staff which comprise the bulk of the technical expertise for Pewlett-Hackard. The future success of the company depends on maintaining this technical excellence and it is strongly suggested to ensure incoming Senior Engineers and Senior Staff have as little of a ratio of mentors to mentees as possible (ideally a 1:1 ratio). These conditions will contribute to a higher quality of mentorship for Pewlett-Hackard's most essential personnel. 
 
 - An additional table `mentees_per_mentor` was generated to illustrate the disparity between the potentially available mentors and potentially incoming mentees (new employees). For example, Senior Staff members and Senior Engineers will respectively have 427 and 309 eligible mentors. Assuming all of the retiring employees positions will be filled, aside from the eligible mentor employees, each Senior Staff mentor would have to work with about 58 mentees and each Senior Engineer mentor would have to work with about 83 mentees. This is an unrealistic working condition for the mentors and deprives the mentees of receiving quality mentorship. Thus, there are not enough eligible mentors for the next generation of Pewlett-Hackard employees given the current eligibility parameters. We suggested that the age parameters, as part of the retirement eligibility metric, be adjusted to include slightly younger and slightly older employees. The outcome of this new query was listed as the second additional query below.
 
 
 An additional SQL query was performed to illustrate how the mentorship situation might pan out if no further action is taken.
 
-### Mentees per Mentor
-Assume a 1:1 ratio of retirees to incoming employees. We can observe that at minimum, mentors with the Assistant Engineer title would have to mentor about 17 employees each. Even worse, each mentor with the Senior Engineer title would need to work with 83 people.
+### Mentees per Mentor - Additional Query #1
+Assume a 1:1 ratio of retirees to incoming employees.
+We can observe that at minimum, mentors with the Assistant Engineer title would have to mentor about 17 employees each. Even worse, each mentor with the Senior Engineer title would need to work with 83 people.
 
 ![mentees_per_mentor](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/mentees_per_mentor.png)
 
@@ -162,12 +162,13 @@ The corresponding query is listed below:
 
 ![mentees_per_mentor_query](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/mentees_per_mentor_query.png)
 
-### Adjusted Mentees per Mentor
-The second additional SQL query was performed to show how changing the age parameters for mentorship program eligibility allows for far more eligible employees. We adjusted the `WHERE` clause and set it equal to  There are now over 93,000 eligible employees. Most groups are completely covered by the new amount of eligible mentors. Senior Staff and Senior Engineers still do not have a 1:1 ratio of mentors to incoming employees, but that is a dramatic improvement. At best, some mentors may need to take on two mentees in these groups. The eligibility for mentors could be even further expand by changing the SQL query requirement `WHERE` clause to include birth dates before 1960 and after 1965.
+### Adjusted Mentees per Mentor - Additional Query #2
+Assume a 1:1 ratio of retirees to incoming employees.
+The second additional SQL query was performed to show how changing the age parameters for mentorship program eligibility allowed for far more eligible employees. We adjusted the `WHERE` clause by setting it equal to `BETWEEN` `1960` and `1965`. There were now over 93,000 eligible mentors. After the adjustment, most groups were completely covered by the new amount of eligible mentors. Senior Staff and Senior Engineers still did not have a 1:1 ratio of mentors to incoming employees, but that was a dramatic improvement. At best, some mentors may need to take on two mentees in these groups. The eligibility for mentors could be even further expand by changing the SQL query requirement `WHERE` clause to include birth dates before 1960.
 
 ![adjusted_mentees_per_mentor](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/adj_mentees_to_mentor.png)
 
-
+The corresponding query is listed below:
 
 ![adjusted_mentees_per_mentor_query](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/adj_mentees_to_mentor_query.png)
 
