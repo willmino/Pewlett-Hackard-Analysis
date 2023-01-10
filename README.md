@@ -164,3 +164,7 @@ Assume 1:1 ratio of retirees to incoming employees.
 
 ![mentees_per_mentor](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/mentees_per_mentor.png)
 
+The corresponding query is listed below:
+
+![mentees_per_mentor_query](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/mentees_per_mentor_query.png)
+
