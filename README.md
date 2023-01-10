@@ -139,9 +139,9 @@ The SQL query produced the following table preview.
 
 1. 72,458 employees are nearing retirement. This is a large number of employees and the company should be prepared for the incoming turnover.
 
-2. 1,549 employees are eligible for the mentorship program. If we assume that every position of the near-retiring employees will be filled, we would expect an equivalent of 72,458 incoming employees. We can create a ratio of mentees_per_mentor by dividing the incoming employees number (assumed to be equivalent to incoming_retirees from the additional mentees_per_mentor table). If every one of these eligible employees entered into the mentorship program, which would be unlikely, the most favorable mentorship conditions would be in the Assistant Engineer title group at a ratio of 17 mentees per mentor. This is a realistic working condition for the mentors because their is too much time required to give a sufficient quality of mentorship to each mentee.
+2. 1,549 employees are eligible for the mentorship program. If we assume that every position of the near-retiring employees will be filled, we would expect an equivalent of 72,458 incoming employees. We can create a ratio of mentees_per_mentor by dividing the incoming employees number (assumed to be equivalent to incoming_retirees from the additional mentees_per_mentor table). If all eligible employees entered into the mentorship program, which would be unlikely, the most favorable mentorship conditions would be in the Assistant Engineer title group at a ratio of 17 mentees per mentor. This is an unealistic working condition for the mentors because there is not enough time in working professionals schedule to provide quality mentorship to 17 individuals.
 
-3. Senior Engineers and Senior Staff comprise 70.1% of the soon-departing workforce. The company's largest resource for the highest quality training and technical body of knowledge, being these 50000+ senior employees, will be depleted if no additional action is taken to ensure mentors will have a few mentees as possible.
+3. Senior Engineers and Senior Staff comprise 70.1% of the soon-departing workforce. The company's largest resource for the highest quality training and technical body of knowledge is the 50000+ senior employees containing this knowledge. The company could experience a decrease in techinical productivity if over 50,000 new employees enter without a high quality mentorship experience to enrich their techinical expertise.
 
 4. When viewing the additional `mentees_per_mentor` table, only 1.19% of Senior Engineers would be retained if all of them entered into the mentorship program. This is the lowest retention figure for any of the groups.
 
@@ -149,16 +149,18 @@ The SQL query produced the following table preview.
 
 ## Summary
 
-- According to the `unique_titles` and `retiring_titles` tables, 72,458 employees will need to be hired ahead of the upcoming wave of retiring employees. Again, over two thirds of these roles are Senior Engineers and Senior Staff which comprise the bulk of the techinical expertise for the company. The future success of the company depends on maintaining the technical excellence and it is strongly suggested to ensure incoming Senior Engineers and Senior Staff have as little of a ratio of mentors to mentees as possible. These conditions will contribute to a higher quality of mentorship for Pewlett-Hackard's most essential personnel. 
+- According to the `unique_titles` and `retiring_titles` tables, 72,458 employees will need to be hired ahead of the upcoming wave of retiring employees. Again, over two thirds of these roles are Senior Engineers and Senior Staff which comprise the bulk of the techinical expertise for Pewlett-Hackard. The future success of the company depends on maintaining this technical excellence and it is strongly suggested to ensure incoming Senior Engineers and Senior Staff have as little of a ratio of mentors to mentees as possible. These conditions will contribute to a higher quality of mentorship for Pewlett-Hackard's most essential personnel. 
 
+- An additional table `mentees_per_mentor` was generated to illustrate the disparity between the potentially available mentors and potentially incoming mentees. For example, Senior Staff and Senior Engineer will respectively have 427 and 309 eligible mentors. Assuming all of the retiring employees positions will be filled, each Senior Staff mentor would have to work with 58 mentees and each Senior Engineer mentor would have to work with 83 mentees. This is an unrealistic working condition for the mentors and deprives the mentees of receiving quality mentorship. Thus, there currently not enough eligible mentors for the next generation of Pewlett-Hackard employees.
 
 - 
 
 
 
+An additional SQL query was generated to illustrate how the mentorship situation might pan out if no further action is taken.
 
-then provide two additional queries or tables that may provide more insight into the upcoming "silver tsunami."
-
-An additional SQL query was generated to illustrate what the mentorship situation might 
+### Mentees per Mentor
+Assume 1:1 ratio of retirees to incoming employees.
 
 ![mentees_per_mentor](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/mentees_per_mentor.png)
+
