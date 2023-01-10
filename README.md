@@ -7,7 +7,7 @@ As an assistant to Bobby at Pewlett Hackard, I was tasked with helping him infor
 ### Purpose
 We constructed a database from six .csv files and ran SQL queries in pgAdmin (with postgres(SQL)) in order to determine near-retirement employees who are eligible to enroll in a part time mentorship program.
 
-## Analysis
+## Technical Summary
 
 To construct the database we first created tables using SQL queries such as below:
 
@@ -131,17 +131,16 @@ The SQL query produced the following table preview.
 ![mentorship_eligibility](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/mentorship_eligibility.png)
 
 
-## Results
+## Analysis
 
-Provide a bulleted list with four major points from the two analysis deliverables. Use images as support where needed.
+### Results
 
-### Four major findings
 
-1. 72458 employees are suspected to retire soon. This is a large number of employees and the company should be prepared for the incoming turnover.
+1. 72,458 employees are suspected to retire soon. This is a large number of employees and the company should be prepared for the incoming turnover.
 
-2. 1549 employees are eligible for the mentorship program. If every one of these eligible employees entered into the mentorship program, only a maximum of 2.14% of the retiring workforce could be retained. Its unlikely all of these employees will enter into the mentorship program and thus additional part time senior technical staff may need to be hired to help bolster the program.
+2. 1,549 employees are eligible for the mentorship program. If every one of these eligible employees entered into the mentorship program.
 
-3. Senior Engineers and Senior Staff comprise 70.1% of the soon departing workforce. The company's largest resource for the highest quality training and technical body of knowledge, being these 50000+ senior employees, will be depleted if no action is taken.
+3. Senior Engineers and Senior Staff comprise 70.1% of the soon-departing workforce. The company's largest resource for the highest quality training and technical body of knowledge, being these 50000+ senior employees, will be depleted if no action is taken.
 
 4. When viewing the additional `mentors_by_title` table, only 1.19% of Senior Engineers would be retained if all of them entered into the mentorship program. This is the lowest retention figure for any of the groups.
 
@@ -149,9 +148,10 @@ Provide a bulleted list with four major points from the two analysis deliverable
 
 ## Summary
 
+- According to the `unique_titles` and `retiring_titles` tables, 72,458 employees will need to be hired ahead of the upcoming wave of retiring employees. Again, over two thirds of these roles are Senior Engineers and Senior Staff.
 
-How many roles will need to be filled as the "silver tsunami" begins to make an impact?
-Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?
+
+- 
 
 
 
