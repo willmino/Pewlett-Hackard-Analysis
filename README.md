@@ -148,17 +148,23 @@ The SQL query produced the following table preview.
 
 - According to the `unique_titles` and `retiring_titles` tables, 72,458 employees will need to be hired ahead of the upcoming wave of retiring employees. Again, over two thirds of these roles are Senior Engineers and Senior Staff which comprise the bulk of the technical expertise for Pewlett-Hackard. The future success of the company depends on maintaining this technical excellence and it is strongly suggested to ensure incoming Senior Engineers and Senior Staff have as little of a ratio of mentors to mentees as possible. These conditions will contribute to a higher quality of mentorship for Pewlett-Hackard's most essential personnel. 
 
-- An additional table `mentees_per_mentor` was generated to illustrate the disparity between the potentially available mentors and potentially incoming mentees (new employees). For example, Senior Staff members and Senior Engineers will respectively have 427 and 309 eligible mentors. Assuming all of the retiring employees positions will be filled, aside from the eligible mentor employees, each Senior Staff mentor would have to work with about 58 mentees and each Senior Engineer mentor would have to work with about 83 mentees. This is an unrealistic working condition for the mentors and deprives the mentees of receiving quality mentorship. Thus, there are not enough eligible mentors for the next generation of Pewlett-Hackard employees given the current eligibility parameters.
+- An additional table `mentees_per_mentor` was generated to illustrate the disparity between the potentially available mentors and potentially incoming mentees (new employees). For example, Senior Staff members and Senior Engineers will respectively have 427 and 309 eligible mentors. Assuming all of the retiring employees positions will be filled, aside from the eligible mentor employees, each Senior Staff mentor would have to work with about 58 mentees and each Senior Engineer mentor would have to work with about 83 mentees. This is an unrealistic working condition for the mentors and deprives the mentees of receiving quality mentorship. Thus, there are not enough eligible mentors for the next generation of Pewlett-Hackard employees given the current eligibility parameters. We suggested that the age parameters, as part of the retirement eligibility metric, be adjusted to include slightly younger and slightly older employees. The outcome of this new query was listed as the second additional query below.
 
 
 An additional SQL query was performed to illustrate how the mentorship situation might pan out if no further action is taken.
 
 ### Mentees per Mentor
-Assume 1:1 ratio of retirees to incoming employees.
+Assume a 1:1 ratio of retirees to incoming employees. We can observe that at minimum, mentors with the Assistant Engineer title would have to mentor about 17 employees each. Even worse, each mentor with the Senior Engineer title would need to work with 83 people.
 
 ![mentees_per_mentor](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/mentees_per_mentor.png)
 
 The corresponding query is listed below:
 
 ![mentees_per_mentor_query](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/mentees_per_mentor_query.png)
+
+### Adjusted Mentees per Mentor
+
+!(adjusted_mentees_per_mentor)[https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/adj_mentees_to_mentor.png]
+
+![adjusted_mentees_to_mentor_query](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/adj_mentees_to_mentor_query.png)
 
