@@ -74,7 +74,7 @@ In order to have the most accurate information for our tables, we limited our ta
 
 This query yielded the following `unique_titles` table. Now the table only included a single row for each employee with their most recent title. This figure clearly depicts the magnitude of the impending retirement wave at Pewlett-Hackard. We can see over 70,000 employees are nearing retirement.
 
-![unique_titles](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/_unique_titles_.png)
+![unique_titles](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/unique_titles_.png)
 
 ### Deliverable 1
 
