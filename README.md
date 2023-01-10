@@ -161,4 +161,4 @@ then provide two additional queries or tables that may provide more insight into
 
 An additional SQL query was generated to illustrate what the mentorship situation might 
 
-![]()
+![mentees_per_mentor](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/mentees_per_mentor.png)
