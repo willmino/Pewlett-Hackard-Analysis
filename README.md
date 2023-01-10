@@ -169,5 +169,5 @@ The second additional SQL query was performed to show how changing the age param
 
 
 
-![adjusted_mentees_per_mentor_query](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/mentees_per_mentor_query.png)
+![adjusted_mentees_per_mentor_query](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/mentees_to_mentor_query.png)
 
