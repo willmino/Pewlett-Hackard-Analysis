@@ -2,10 +2,10 @@
 
 ## Overview
 
-As an assistant to Bobby at Pewlett Hackard, I was tasked with helping him inform upper management of the number of potential employees entering into retirement and the measures necessary to prevent mass turnover. One solution proposed by upper management was to offer a mentorship program for retiring employees who can train up and coming managers in an effort to keep the company well managed. The near-retirement employees would be able to work part time as they instruct soon-to-be managers on how to properly conduct their activities. With the help of Bobby, we used postgres(SQL), pgAdmin 4, and QuickDBD.com, to create a database schema and run SQL queries to aggregate information within the database.
+As an assistant to Bobby at Pewlett Hackard, I was tasked with helping him inform upper management of the number of potential employees entering into retirement and the preventative measures to account for the mass turnover. One solution proposed by upper management was to offer a mentorship program for seasoned employees, not yet near retirement, who can train up and coming employees in an effort to keep the company well managed. With the help of Bobby, we used postgres(SQL), pgAdmin 4, and QuickDBD.com, to create a database and run SQL queries to aggregate information from the database and determine employees who are eligibile for the mentorship
 
 ### Purpose
-We constructed a database from six .csv files and ran SQL queries in pgAdmin (with postgres(SQL)) in order to determine near-retirement employees who are eligible to enroll in a part time mentorship program.
+We constructed a database from six .csv files and ran SQL queries in pgAdmin (with postgres(SQL)) in order to determine employees who are eligible to enroll in a part time mentorship program.
 
 ## Technical Summary
 
@@ -29,14 +29,14 @@ To construct the database we first created tables using SQL queries such as belo
 
 `);`
 
-This table housed the primary key `emp_no` and `dept_no` which were critical for performing most of the joins in our SQL queries. Foreign keys were established in the table schema as well. For example, `emp_no` is a primary key in the `employees` table, but it functions as a foreign key in the `dept_emp` table. In this way, the `employees' table can reference the `dept_emp` table by using the 
-foreign key `emp_no`. This serves as the basis for database construction and allows for the execution of many SQL queries.
+This table housed the primary key `emp_no` and `dept_no` which were critical for performing most of the joins in our SQL queries. Foreign keys were established in the table schema as well. For example, `emp_no` is a primary key in the `employees` table, but it functions as a foreign key in the `dept_emp` table. In this way, the `employees` table can reference the `dept_emp` table by using the 
+foreign key `emp_no`. This serves as the basis for database construction and allows for the execution of many SQL queries and functions such as JOINS.
 
-After we created all the tables, primary, and foreign keys, our schema was completed. Below was the final visualization for the database schema:
+After we created all the tables, primary keys, and foreign keys, our schema was completed. Below was the final visualization for the database schema:
 
 ![Database Design](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/ERDiagram.png)
 
-In order to determine what employees were eligible for the mentorship program, we first selected all of the employees who were born between 1952 and 1955. We also selected for each employees title. We then ordered the `emp_no` (employee number) in ascending order. This table construction required a `JOIN` between the `employees` and `titles` tables. The SQL query allowing for this table is listed below:
+In order to determine how many employees were near retirement, we first selected all of the employees who were born between 1952 and 1955. We also selected for each employees title. We then ordered the `emp_no` (employee number) in ascending order. This table construction required a `JOIN` between the `employees` and `titles` tables. The SQL query allowing for this table is listed below:
 
 `SELECT e.emp_no, e.first_name, e.last_name, t.title, t.from_date, t.to_date`
 
@@ -50,12 +50,11 @@ In order to determine what employees were eligible for the mentorship program, w
 
 `ORDER BY emp_no ASC;`
 
-This query produce the following table result. We can see multiple employees as evidence by duplicate employee numbers in rows but with different titles. This indicates that an employee was at one point promoted. In order to have the most accurate information for our tables, we needed to select the most recent title for each employee.
+This query produced the following table result. With this information, the data is taking shape and it begins to illustrate the magnitude of the upcoming retirement wave. Although, we can see multiple employees as evidenced by duplicate employee numbers in rows but with different titles. We should clean up this data a little bit by eliminating duplicate employees. This infomration indicates that an employee was at one point promoted and the information of the previous title was retained in the database.
 
 ![retirement_titles](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/retirement_titles.png)
 
-
-To execute this, we performed another SQL query that delivered a `unique_titles` table. We selected the employee number, first anme, last name, and title from the `retirement_titles` table. The `SELECT DISTINCT ON` clause allowed us only to select unique titles for each employee. The parameters for employee title selection was later determined by the `ORDER BY` clause. We also selected for employees who were currently working at the company using the `WHERE` clause set equal to the maximum date `9999-01-01`. Any former employee, with a `to_date` in the past, would be not be included in this table. We ordered the tables by employee number in ascending order to view the lowest employee numbers first. We also ordered this table by the `to_date` in descending order so we could display the most recent date that an employees position began. The SQL query for this table was summarized below:
+In order to have the most accurate information for our tables, we limited our table to onclude only the most recent title of each employee. To execute this, we performed another SQL query that delivered a `unique_titles` table. We selected the employee number, first name, last name, and title from the `retirement_titles` table. The `SELECT DISTINCT ON` clause allowed us to select unique titles for each employee. The parameter for employee title selection was later determined in this query by the `ORDER BY` clause. We also limited the table to currently employed workers using the `WHERE` clause set equal to the maximum date `9999-01-01`. Any former employee, with a `to_date` in the past, would be not be included in this table. We ordered the tables by employee number in ascending order to view the lowest employee numbers first. We also ordered this table by the `to_date` in descending order so we could display the most recent date that an employees position began. The SQL query for this table was summarized below:
 
 `SELECT DISTINCT ON (rt.emp_no) rt.emp_no,`
 
@@ -73,9 +72,9 @@ To execute this, we performed another SQL query that delivered a `unique_titles`
 
 `ORDER BY rt.emp_no ASC, rt.to_date DESC;`
 
-This query yielded the following `unique_titles` table. Now the table only include a single row for each employee with their most recent title.
+This query yielded the following `unique_titles` table. Now the table only included a single row for each employee with their most recent title. This figure clearly depicts the magnitude of the impending retirement wave at Pewlett-Hackard. We can see over 70,000 employees are nearing retirement.
 
-![unique_titles](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/unique_titles.png)
+![unique_titles](https://github.com/willmino/Pewlett-Hackard-Analysis/blob/main/_unique_titles_.png)
 
 ### Deliverable 1
 
