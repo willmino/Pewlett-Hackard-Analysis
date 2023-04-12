@@ -2,7 +2,7 @@
 
 ## Overview
 
-As an assistant to Bobby at Pewlett Hackard, I was tasked with helping him inform upper management of the number of potential employees entering into retirement and the preventative measures to account for the mass turnover. One solution proposed by upper management was to offer a mentorship program for seasoned employees, nearing-retirement, who can adopt a part-time schedule to train up and coming employees in an effort to keep the company well managed. With the help of Bobby, we used postgres(SQL), pgAdmin 4, and QuickDBD.com, to create a database and run SQL queries to aggregate information from the database and determine employees who are eligibile for the mentorship
+I was tasked with determining the number of potential employees entering into retirement and some preventative measures to account for the mass turnover. One solution was to offer a mentorship program for seasoned employees, nearing-retirement, who can adopt a part-time schedule to train up and coming employees in an effort to keep the company well managed. With the help of Bobby, we used postgres(SQL), pgAdmin 4, and QuickDBD.com, to create a database and run SQL queries to aggregate information from the database and determine employees who are eligibile for the mentorship
 
 ### Purpose
 We constructed a database from six .csv files and ran SQL queries in pgAdmin (with postgres(SQL)) in order to determine employees who are eligible to enroll in a part time mentorship program.
